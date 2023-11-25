@@ -1,0 +1,40 @@
+; Top Design: "Power-Divider_lib:PDiv:schematic"
+; Netlisted using Hierarchy Policy: "Standard"
+
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="Power-Divider_lib:PDiv:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
+; Library Name: Power-Divider_lib
+; Cell Name: SW_WPD_MS
+; View Name: schematic
+define SW_WPD_MS ( N__2  N__1  N__0 ) 
+;parameters 
+model MSub1 MSUB H=10.0 mil Er=9.6 Mur=1 Cond=1.0E+50 Hu=3.9e+034 mil T=0 mil TanD=0 Rough=0 mil DielectricLossModel=1 FreqForEpsrTanD=1.0 GHz LowFreqForTanD=1.0 kHz HighFreqForTanD=1.0 THz RoughnessModel=2 
+R:R1  N__3 N__4 R=100.00 Ohm Noise=yes 
+MTEE:Tee3  N__5 N__3 N__0 Subst="MSub1" W1=4.363 mil W2=4.363 mil W3=9.91 mil 
+MCURVE:Curve2  N__6 N__5 Subst="MSub1" W=4.363 mil Angle=180 Radius=82.207 mil 
+MLIN2:TL2  N__7 N__6 Subst="MSub1" W=4.363 mil L=29.955 mil Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+MTEE:Tee2  N__4 N__8 N__1 Subst="MSub1" W1=4.363 mil W2=4.363 mil W3=9.91 mil 
+MCURVE:Curve1  N__8 N__9 Subst="MSub1" W=4.363 mil Angle=180 Radius=82.207 mil 
+MLIN2:TL1  N__10 N__9 Subst="MSub1" W=4.363 mil L=29.955 mil Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+MTEE:Tee1  N__10 N__7 N__2 Subst="MSub1" W1=4.363 mil W2=4.363 mil W3=9.91 mil 
+end SW_WPD_MS
+
+SW_WPD_MS:WPD1  N__2 N__0 N__1 
+
+;#@# autodisplay="S_Params_Quad_dB_Smith_Log"
+S_Param:SP1 CalcS=yes CalcY=no CalcZ=no GroupDelayAperture=1e-4 FreqConversion=no FreqConversionPort=1 StatusLevel=2 CalcNoise=no SortNoise=0 BandwidthForNoise=1.0 Hz DevOpPtLevel=0 SPSS_WSP=yes \
+SweepVar="freq" SweepPlan="SP1_stim" OutputPlan="SP1_Output" 
+
+SweepPlan: SP1_stim Start=1.0 GHz Stop=3 GHz Step=0.2 GHz 
+
+OutputPlan:SP1_Output \
+      Type="Output" \
+      UseEquationNestLevel=yes \
+      EquationNestLevel=2 \
+      UseSavedEquationNestLevel=yes \
+      SavedEquationNestLevel=2
+
+#load "python","LinearCollapse"
+Component Module="LinearCollapse" Type="ModelExtractor" NetworkRepresentation=2
+Port:Port1  N__2 0 Num=1 Z=50 Ohm Noise=yes 
+Port:Port2  N__0 0 Num=2 Z=50 Ohm Noise=yes 
+Port:Port3  N__1 0 Num=3 Z=50 Ohm Noise=yes 
