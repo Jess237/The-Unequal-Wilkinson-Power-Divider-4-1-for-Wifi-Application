@@ -1,0 +1,21 @@
+
+hpeesofsim (*) 595.shp Oct 31 2023, MINT version 5
+    (64-bit windows built: Tue Oct 31, 2023 22:23:19 +0000)
+
+
+***** Simulation started at Sun Nov 26 11:51:13 2023
+      Running on host: "LAPTOP-APNPFDQU"
+      In Directory: "C:\Users\rojo_\The-Unequal-Wilkinson-Power-Divider-4-1-for-Wifi-Application\Power-Divider\data"
+      Process ID: 25904
+
+
+SP SP1[1] <Power-Divider_lib:PDiv2_nonidealTL:schematic>   freq=(1 GHz->5 GHz)
+Warning detected by hpeesofsim during SP analysis 'SP1'.
+    UserValue(0.000004) < MinRecommendValue(0.000016) OR UserValue > MaxRecommendValue(0.157000) for 'W' in `Z1'
+
+
+
+
+Resource usage:
+  Total stopwatch time     =     0.57 seconds.
+

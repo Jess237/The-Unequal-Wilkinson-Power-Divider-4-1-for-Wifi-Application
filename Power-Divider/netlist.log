@@ -1,22 +1,14 @@
-; Top Design: "Power-Divider_lib:PDiv1:schematic"
+; Top Design: "Power-Divider_lib:PDiv2_nonidealTL:schematic"
 ; Netlisted using Hierarchy Policy: "Standard"
 
-Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="Power-Divider_lib:PDiv1:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
-; Library Name: ads_rflib
-; Cell Name: V_Probe
-; View Name: schematic
-define V_Probe ( P1 ) 
-parameters 
-Short:Short1  P1 net Mode=0 SaveCurrent=no 
-end V_Probe
-
-TLIN:Z4  N__0 N__19 Z=35.3553 Ohm E=90 F=1 GHz 
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="Power-Divider_lib:PDiv2_nonidealTL:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
+MLIN2:Z2  N__4 N__2 Subst="MSub1" W=4.6411 mil L=17.5604 mil Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
 
 ;#@# autodisplay="S_Params_Quad_dB_Smith_Log"
 S_Param:SP1 CalcS=yes CalcY=no CalcZ=no GroupDelayAperture=1e-4 FreqConversion=no FreqConversionPort=1 StatusLevel=2 CalcNoise=no SortNoise=0 BandwidthForNoise=1.0 Hz DevOpPtLevel=0 SPSS_WSP=yes \
 SweepVar="freq" SweepPlan="SP1_stim" OutputPlan="SP1_Output" 
 
-SweepPlan: SP1_stim Start=1.0 GHz Stop=3 GHz Dec=100 
+SweepPlan: SP1_stim Start=1.0 GHz Stop=5 GHz Step=0.2 GHz 
 
 OutputPlan:SP1_Output \
       Type="Output" \
@@ -27,10 +19,7 @@ OutputPlan:SP1_Output \
 
 #load "python","LinearCollapse"
 Component Module="LinearCollapse" Type="ModelExtractor" NetworkRepresentation=2
-Port:Term1  N__16 0 Num=1 Z=50 Ohm Noise=yes 
-Port:Term2  N__11 0 Num=2 Z=50 Ohm Noise=yes 
-Port:Term3  N__19 0 Num=3 Z=50 Ohm Noise=yes 
-R:R1  N__0 N__4 R=125 Ohm Noise=yes 
+R:R1  N__2 N__3 R=125 Ohm Noise=yes 
 
 ZB=ZA/Ratio
 Ratio=4
@@ -38,8 +27,10 @@ ZA=51.5
 ZC=ZA/(1+Ratio)^.5
 ZD=ZC/(Ratio)^.5
 RW1=ZC^2/50+ZD^2/50
-V_Probe:V_Probe1  N__11 
-V_Probe:V_Probe2  N__19 
-TLIN:Z3  N__4 N__11 Z=70.7107 Ohm E=90 F=1 GHz 
-TLIN:Z1  N__16 N__4 Z=50 Ohm E=90 F=1 GHz 
-TLIN:Z2  N__16 N__0 Z=39.5285 Ohm E=90 F=1 GHz 
+MLIN2:Z3  N__3 N__1 Subst="MSub1" W=1.7308 mil L=18.2406 mil Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+MLIN2:Z4  N__2 N__5 Subst="MSub1" W=5.4536 mil L=17.4401 mil Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+MLIN2:Z1  N__4 N__3 Subst="MSub1" W=0.1669 mil L=19.231 mil Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+Port:Term1  N__4 0 Num=1 Z=50 Ohm Noise=yes 
+Port:Term2  N__1 0 Num=2 Z=50 Ohm Noise=yes 
+Port:Term3  N__5 0 Num=3 Z=50 Ohm Noise=yes 
+model MSub1 MSUB H=1.57 mm Er=4.6 Mur=1 Cond=5.8E7 Hu=1e+33 mm T=0.035 mm TanD=0.0023 Rough=0 mm DielectricLossModel=1 FreqForEpsrTanD=1.0 GHz LowFreqForTanD=1.0 kHz HighFreqForTanD=1.0 THz RoughnessModel=2 

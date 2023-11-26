@@ -3,7 +3,7 @@ The Unequal Wilkinson Power Divider 4:1  for Wifi Application (EE540 Project)
 Objective:
 Design WPD PCB with P2/P3 = 4 and center freq of 2.4 GHz with realistic value for Rint.
 
-Additional figures of merit:
+Additional figures of merit (FOMs):
 S21 BW Large
 S23 and S32 small
 
@@ -24,4 +24,13 @@ Screenshots:
 841 New schematic response (PDiv1) with ideal TL components using M's values.
 846 PDiv1 and PDiv new plots added for baseline comparison with academic paper used as resource for this project; params for both sims unmodified.
 847 PDiv1 (ideal TL model) with computed characteristic impedences
+849 Microstrip parameters entered using some ADS sample values from ADS Power Divider sample pdf:
+εr : 4.6 (I used 4)
+Height (H) : 1.6 mm
+Loss Tangent (TanD) : 0.0023
+Metal Height (T) : 0.035 mm
+Metal Conductivity (Cond) : 5.8E7 (Copper)
+εr was maintained at 4 to be consistent with Matlab calcs. 4.4-4.6 would be realistic for FR4 @ 2.4Hz and line with sample pdf values. ADS Line calc was used to check impedence values given the widths and physical characteristics of the substrate and unfortunately the characteristic impedences and e_effective values did not line up with the matlab values.
+850 ideal TL model with correct electrical lengths "E" from values computed in matlab.
+852 εr : 4.6 used to compare with screenshot 849
 

@@ -3,19 +3,15 @@ hpeesofsim (*) 595.shp Oct 31 2023, MINT version 5
     (64-bit windows built: Tue Oct 31, 2023 22:23:19 +0000)
 
 
-***** Simulation started at Sun Nov 26 00:12:54 2023
+***** Simulation started at Sun Nov 26 11:34:59 2023
       Running on host: "LAPTOP-APNPFDQU"
       In Directory: "C:\Users\rojo_\The-Unequal-Wilkinson-Power-Divider-4-1-for-Wifi-Application\Power-Divider\data"
-      Process ID: 32888
+      Process ID: 22160
 
 
-2 spare nodes and 2 spare devices are removed.
-The details can be found in file 'C:\Users\rojo_\The-Unequal-Wilkinson-Power-Divider-4-1-for-Wifi-Application\Power-Divider\data\PDiv1_data\spare_removal.txt'.
-
-
-SP SP1[1] <Power-Divider_lib:PDiv1:schematic>   freq=(1 GHz->3 GHz)
+SP SP1[1] <Power-Divider_lib:PDiv1:schematic>   freq=(1 GHz->5 GHz)
 
 
 Resource usage:
-  Total stopwatch time     =     2.55 seconds.
+  Total stopwatch time     =     0.55 seconds.
 
