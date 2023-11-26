@@ -22,7 +22,7 @@ d = 1.57;       % millimeters
 
 % Sadiku - Elements of Electromagnetics  p. 490
 % skindepth = 1/sqrt(pi*f*mu*sigma); % General formula
-% skin depth calc for copper (mu_r = mu_0 = 4*pi*1E7), sigma = 2.8E7)
+% skin depth calc for copper (mu = mu_0 = 4*pi*1E7), sigma = 2.8E7)
 skindepth= 66.1/sqrt(f); % millimeters
 
 % Loss tangent of dielectric p.484 Sadiiku
