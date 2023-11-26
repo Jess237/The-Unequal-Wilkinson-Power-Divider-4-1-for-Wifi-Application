@@ -1,0 +1,3 @@
+Lecture 12 Network analysis D p29
+miter lenght optimum angle 
+a = 1.8W used in practice

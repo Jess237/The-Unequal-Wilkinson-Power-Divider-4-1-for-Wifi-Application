@@ -3,7 +3,6 @@
 Z0 = 50;    %input and output impedance
 N=4;        % P2/P3 the ratio of power seen out of the two outputs
 K=sqrt(N);  % useful for calculation
-f= 2.4E9      % freq used for skindepth calc
 
 % the impedances of the strips
 Z1 = Z0*sqrt(K*(1+N));
@@ -15,19 +14,20 @@ Rint = Z0* (K+K^-1);    % this one is a physical resistor
 % Z2 feeds Z4
 % Rint connectes Z3 and Z4
 
-epsr = 4;       % relative permitiity of substrate 
+epsr = 4;       % relative permitiity of substrate (@ 3 Ghz ~ 4.4-4.6)
 % FR-4
 
 d = 1.57;       % millimeters 
 % 1.57mm is standard PCB thickness
 
-% Formulas below sourced from EE440 Book (Sadiku - Elements of
-% Electromagnetics  p. 490)
-% skin depth general formula
-% mu = 4*pi*1E7
-% skindepth = 1/sqrt(pi*f*mu*sigma);
-% skin depth calc for copper (mu_r = mu = 4*pi*1E7), sigma = 2.8E7)
-skindepth= 66.1/sqrt(f);
+% Sadiku - Elements of Electromagnetics  p. 490
+% skindepth = 1/sqrt(pi*f*mu*sigma); % General formula
+% skin depth calc for copper (mu_r = mu_0 = 4*pi*1E7), sigma = 2.8E7)
+skindepth= 66.1/sqrt(f); % millimeters
+
+% Loss tangent of dielectric p.484 Sadiiku
+%sig = 1; % FR4 conductivity need datasheet?
+%D = tan(sig/(2*pi*f*epsr*8.85E-12));
 
 % Solving for widths in mm
 W1 = WOverD(Z1,epsr)*d;
@@ -54,6 +54,12 @@ L2 = QuarterWavelength(f,epse2)*10^3;
 L3 = QuarterWavelength(f,epse3)*10^3;
 L4 = QuarterWavelength(f,epse4)*10^3;
 
+% electrical length for use in PDiv1 ideal TL model
+E1 = EL(f,L1);
+E2 = EL(f,L2);
+E3 = EL(f,L3);
+E4 = EL(f,L4);
+
 %testl = QuarterWavelength(4*10^9,teste)*10^3; % from the homework
 
 function out = epse(epsr,dOverW)
@@ -73,5 +79,13 @@ function out = WOverD(Z0,epsr)
         out = (2/pi)*(B-1-log(2*B-1)+(epsr-1)*(log(B-1) + 0.39 -0.61/epsr)/(2*epsr));
     end
 end
+
+function electrical_length = EL(f,L)
+    c = 3*10^8;  
+    lamda = c/f;
+    electrical_length = (360*L*10^-3)/lamda; % degrees
+end
+
+
 
 

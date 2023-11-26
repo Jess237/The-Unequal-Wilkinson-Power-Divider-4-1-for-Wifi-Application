@@ -1,8 +1,8 @@
-; Top Design: "Power-Divider_lib:PDiv2_nonidealTL:schematic"
+; Top Design: "Power-Divider_lib:PDiv1:schematic"
 ; Netlisted using Hierarchy Policy: "Standard"
 
-Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="Power-Divider_lib:PDiv2_nonidealTL:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
-MLIN2:Z2  N__4 N__2 Subst="MSub1" W=4.6411 mil L=17.5604 mil Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="Power-Divider_lib:PDiv1:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
+TLIN:Z4  N__0 N__19 Z=35.3553 Ohm E=50.2276 F=2.4 GHz 
 
 ;#@# autodisplay="S_Params_Quad_dB_Smith_Log"
 S_Param:SP1 CalcS=yes CalcY=no CalcZ=no GroupDelayAperture=1e-4 FreqConversion=no FreqConversionPort=1 StatusLevel=2 CalcNoise=no SortNoise=0 BandwidthForNoise=1.0 Hz DevOpPtLevel=0 SPSS_WSP=yes \
@@ -19,7 +19,10 @@ OutputPlan:SP1_Output \
 
 #load "python","LinearCollapse"
 Component Module="LinearCollapse" Type="ModelExtractor" NetworkRepresentation=2
-R:R1  N__2 N__3 R=125 Ohm Noise=yes 
+Port:Term1  N__16 0 Num=1 Z=50 Ohm Noise=yes 
+Port:Term2  N__11 0 Num=2 Z=50 Ohm Noise=yes 
+Port:Term3  N__19 0 Num=3 Z=50 Ohm Noise=yes 
+R:R1  N__0 N__4 R=125 Ohm Noise=yes 
 
 ZB=ZA/Ratio
 Ratio=4
@@ -27,10 +30,6 @@ ZA=51.5
 ZC=ZA/(1+Ratio)^.5
 ZD=ZC/(Ratio)^.5
 RW1=ZC^2/50+ZD^2/50
-MLIN2:Z3  N__3 N__1 Subst="MSub1" W=1.7308 mil L=18.2406 mil Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
-MLIN2:Z4  N__2 N__5 Subst="MSub1" W=5.4536 mil L=17.4401 mil Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
-MLIN2:Z1  N__4 N__3 Subst="MSub1" W=0.1669 mil L=19.231 mil Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
-Port:Term1  N__4 0 Num=1 Z=50 Ohm Noise=yes 
-Port:Term2  N__1 0 Num=2 Z=50 Ohm Noise=yes 
-Port:Term3  N__5 0 Num=3 Z=50 Ohm Noise=yes 
-model MSub1 MSUB H=1.57 mm Er=4.6 Mur=1 Cond=5.8E7 Hu=1e+33 mm T=0.035 mm TanD=0.0023 Rough=0 mm DielectricLossModel=1 FreqForEpsrTanD=1.0 GHz LowFreqForTanD=1.0 kHz HighFreqForTanD=1.0 THz RoughnessModel=2 
+TLIN:Z3  N__4 N__11 Z=70.7107 Ohm E=52.5328 F=2.4 GHz 
+TLIN:Z1  N__16 N__4 Z=50 Ohm E=55.3582 F=2.4 GHz 
+TLIN:Z2  N__16 N__0 Z=39.5285 Ohm E=50.5740 F=2.4 GHz 
