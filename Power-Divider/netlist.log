@@ -10,6 +10,7 @@ parameters
 Short:Short1  P1 net Mode=0 SaveCurrent=no 
 end V_Probe
 
+TLIN:Z4  N__0 N__19 Z=35.3553 Ohm E=90 F=1 GHz 
 
 ;#@# autodisplay="S_Params_Quad_dB_Smith_Log"
 S_Param:SP1 CalcS=yes CalcY=no CalcZ=no GroupDelayAperture=1e-4 FreqConversion=no FreqConversionPort=1 StatusLevel=2 CalcNoise=no SortNoise=0 BandwidthForNoise=1.0 Hz DevOpPtLevel=0 SPSS_WSP=yes \
@@ -29,13 +30,7 @@ Component Module="LinearCollapse" Type="ModelExtractor" NetworkRepresentation=2
 Port:Term1  N__16 0 Num=1 Z=50 Ohm Noise=yes 
 Port:Term2  N__11 0 Num=2 Z=50 Ohm Noise=yes 
 Port:Term3  N__19 0 Num=3 Z=50 Ohm Noise=yes 
-R:R1  N__0 N__4 R=RW1 Ohm Noise=yes 
-V_Probe:V_Probe1  N__11 
-V_Probe:V_Probe2  N__19 
-TLIN:TL3  N__0 N__19 Z=ZD Ohm E=90 F=1 GHz 
-TLIN:TL4  N__4 N__11 Z=ZC Ohm E=90 F=1 GHz 
-TLIN:TL5  N__16 N__4 Z=ZA Ohm E=90 F=1 GHz 
-TLIN:TL6  N__16 N__0 Z=ZB Ohm E=90 F=1 GHz 
+R:R1  N__0 N__4 R=125 Ohm Noise=yes 
 
 ZB=ZA/Ratio
 Ratio=4
@@ -43,3 +38,8 @@ ZA=51.5
 ZC=ZA/(1+Ratio)^.5
 ZD=ZC/(Ratio)^.5
 RW1=ZC^2/50+ZD^2/50
+V_Probe:V_Probe1  N__11 
+V_Probe:V_Probe2  N__19 
+TLIN:Z3  N__4 N__11 Z=70.7107 Ohm E=90 F=1 GHz 
+TLIN:Z1  N__16 N__4 Z=50 Ohm E=90 F=1 GHz 
+TLIN:Z2  N__16 N__0 Z=39.5285 Ohm E=90 F=1 GHz 

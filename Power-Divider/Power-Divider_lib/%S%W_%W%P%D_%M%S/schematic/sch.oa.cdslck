@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      rojo_
+HostName                       LAPTOP-APNPFDQU
+ProcessIdentifier              25644
+ProcessCreationTime_UTC        1700984483
+ProcessCreationTime_Readable   Sat Nov 25 23:41:23 2023 Pacific Standard Time
+AppIdentifier                  OA File System Design Manager
+OSType                         win32
+ReasonForPlacingEditLock       OpenAccess edit lock
+FilePathUsedToEditLock         C:\Users\rojo_\The-Unequal-Wilkinson-Power-Divider-4-1-for-Wifi-Application\Power-Divider\Power-Divider_lib\%S%W_%W%P%D_%M%S\schematic\sch.oa.cdslck
+TimeEditLocked                 Sun Nov 26 00:04:42 2023 Pacific Standard Time

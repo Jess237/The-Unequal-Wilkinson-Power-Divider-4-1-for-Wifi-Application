@@ -23,3 +23,5 @@ Screenshots:
 840 component values screenshotted of WPD template to achieve results in 836-839
 841 New schematic response (PDiv1) with ideal TL components using M's values.
 846 PDiv1 and PDiv new plots added for baseline comparison with academic paper used as resource for this project; params for both sims unmodified.
+847 PDiv1 (ideal TL model) with computed characteristic impedences
+
