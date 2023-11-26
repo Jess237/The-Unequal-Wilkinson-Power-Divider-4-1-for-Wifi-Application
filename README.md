@@ -22,3 +22,4 @@ Screenshots:
 838 and 839 frequency sweep and range adjusted to linear sweep with steps of 0.2 GHz, 1GHz - 3 GHz. Ports were named. 
 840 component values screenshotted of WPD template to achieve results in 836-839
 841 New schematic response (PDiv1) with ideal TL components using M's values.
+846 PDiv1 and PDiv new plots added for baseline comparison with academic paper used as resource for this project; params for both sims unmodified.
