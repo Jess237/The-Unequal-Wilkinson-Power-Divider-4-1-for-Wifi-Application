@@ -20,10 +20,11 @@ epsr = 4;       % relative permitiity of substrate (@ 3 Ghz ~ 4.4-4.6)
 d = 1.57;       % millimeters 
 % 1.57mm is standard PCB thickness
 
-% Sadiku - Elements of Electromagnetics  p. 490
-% skindepth = 1/sqrt(pi*f*mu*sigma); % General formula
-% skin depth calc for copper (mu = mu_0 = 4*pi*1E7), sigma = 2.8E7)
-skindepth= 66.1/sqrt(f); % millimeters
+f = 2.4*10^9;   % operating frequency (Hz)
+% 2.4GHz is the IOT range
+
+% General formula mm
+skindepth_copper = SD("copper", f);
 
 % Loss tangent of dielectric p.484 Sadiiku
 %sig = 1; % FR4 conductivity need datasheet?
@@ -45,20 +46,11 @@ epse4 = epse(epsr,1/WOverD(Z4,epsr));
 
 %teste = epse(2.2,d/test/1.59);      % from homework
 
-f = 2.4*10^9;   % operating frequency (Hz)
-% 2.4GHz is the IOT range
-
 %calculating the length of each strip in mm
 L1 = QuarterWavelength(f,epse1)*10^3;
 L2 = QuarterWavelength(f,epse2)*10^3;
 L3 = QuarterWavelength(f,epse3)*10^3;
 L4 = QuarterWavelength(f,epse4)*10^3;
-
-% electrical length for use in PDiv1 ideal TL model
-E1 = EL(f,L1);
-E2 = EL(f,L2);
-E3 = EL(f,L3);
-E4 = EL(f,L4);
 
 %testl = QuarterWavelength(4*10^9,teste)*10^3; % from the homework
 
@@ -80,12 +72,13 @@ function out = WOverD(Z0,epsr)
     end
 end
 
-function electrical_length = EL(f,L)
-    c = 3*10^8;  
-    lamda = c/f;
-    electrical_length = (360*L*10^-3)/lamda; % degrees
+function skindepth = SD(material_name,f) % Sadiku - Elements of Electromagnetics  p. 490
+    if material_name=="copper"
+       mu= 4*pi*1E-7;
+       sigma = 5.8E7;
+    end
+    skindepth = 1E3/sqrt(pi*f*mu*sigma); 
 end
-
 
 
 

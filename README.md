@@ -44,3 +44,7 @@ Metal Conductivity (Cond) : 5.8E7 (Copper)
 
 852 εr : 4.6 used to compare with screenshot 849
 853 to replace 850 since axis markers did not appear
+
+858 P3/P1 = 0.799 from S13 -0.970dB, P2/P1 = 0.200 from S12 -6.987 dB, resulting in P3/P3 ~ 4, as desired.
+859 Markers added to plots. db(S11)=-76.908, dB(S22)=-76.804, dB(S33) = -76.834 at 2.4 GHz, indicating minimal reflection at Ports 1, 3 and 3. dB(S23) = -115.302, indicating excellent isolation between ports 2 and 3.
+860 expands on plot from 858

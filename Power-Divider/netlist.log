@@ -2,7 +2,7 @@
 ; Netlisted using Hierarchy Policy: "Standard"
 
 Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="Power-Divider_lib:PDiv1:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
-TLIN:Z4  N__0 N__19 Z=35.3553 Ohm E=50.2276 F=2.4 GHz 
+TLIN:Z4  N__0 N__19 Z=35.3553 Ohm E=90 F=2.4 GHz 
 
 ;#@# autodisplay="S_Params_Quad_dB_Smith_Log"
 S_Param:SP1 CalcS=yes CalcY=no CalcZ=no GroupDelayAperture=1e-4 FreqConversion=no FreqConversionPort=1 StatusLevel=2 CalcNoise=no SortNoise=0 BandwidthForNoise=1.0 Hz DevOpPtLevel=0 SPSS_WSP=yes \
@@ -30,6 +30,6 @@ ZA=51.5
 ZC=ZA/(1+Ratio)^.5
 ZD=ZC/(Ratio)^.5
 RW1=ZC^2/50+ZD^2/50
-TLIN:Z3  N__4 N__11 Z=70.7107 Ohm E=52.5328 F=2.4 GHz 
-TLIN:Z1  N__16 N__4 Z=50 Ohm E=55.3582 F=2.4 GHz 
-TLIN:Z2  N__16 N__0 Z=39.5285 Ohm E=50.5740 F=2.4 GHz 
+TLIN:Z3  N__4 N__11 Z=70.7107 Ohm E=90 F=2.4 GHz 
+TLIN:Z1  N__16 N__4 Z=158 Ohm E=90 F=2.4 GHz 
+TLIN:Z2  N__16 N__0 Z=39.5285 Ohm E=90 F=2.4 GHz 
