@@ -52,8 +52,8 @@ L2 = QuarterWavelength(f,epse2)*10^3;
 L3 = QuarterWavelength(f,epse3)*10^3;
 L4 = QuarterWavelength(f,epse4)*10^3;
 
-R1 = LengthTo90CurveR(L1);
-R2 = LengthTo90CurveR(L2);
+R1 = LengthTo90CurveR(L1, 90);
+R2 = LengthTo90CurveR(L2, 90);
 
 %testl = QuarterWavelength(4*10^9,teste)*10^3; % from the homework
 
@@ -75,6 +75,7 @@ function out = WOverD(Z0,epsr)
     end
 end
 
-function R = LengthTo90CurveR(L)
-    R = sqrt(4*L/pi);
+function R = LengthTo90CurveR(L, deg)
+    pie = deg/360;
+    R = sqrt(L/(pi*pie));
 end
