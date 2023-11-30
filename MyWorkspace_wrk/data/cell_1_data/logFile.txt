@@ -1,0 +1,17 @@
+
+hpeesofsim (*) 590.shp Aug  5 2023, MINT version 5
+    (64-bit windows built: Sun Aug 06, 2023 05:54:36 +0000)
+
+
+***** Simulation started at Thu Nov 30 13:53:29 2023
+      Running on host: "BigBoy"
+      In Directory: "C:\Users\Myl\MyWorkspace_wrk\data"
+      Process ID: 14000
+
+
+SP SP1[1] <MyLibrary_lib:cell_1:schematic>   freq=(1 GHz->3.8 GHz)
+
+
+Resource usage:
+  Total stopwatch time     =     1.23 seconds.
+

@@ -1,0 +1,17 @@
+<!DOCTYPE Substrate>
+<SubstrateModel>
+    <stack BOTTOM_OF_BOARD_INDEX="1" TOP_OF_BOARD_INDEX="4" BAL_TYPE="NONE" BAL_NUM="0" SPECIFIED_PURPOSES="" PURPOSE_TREATMENT="USE_ALL_EXCEPT_SPECIFIED">
+        <material materialname="FR_4_Core" BAL_TYPE="INHERIT" BAL_NUM="0"/>
+        <interface thickunit="mil" materialname="" thick="" BAL_TYPE="INHERIT" BAL_NUM="0"/>
+        <material thickunit="mil" materialname="FR_4_Prepreg" thick="14" BAL_TYPE="INHERIT" BAL_NUM="0"/>
+        <interface thickunit="micron" materialname="" thick="" BAL_TYPE="INHERIT" BAL_NUM="0"/>
+        <material materialname="AIR" BAL_TYPE="INHERIT" BAL_NUM="0"/>
+    </stack>
+    <layers>
+        <layer expand="1" pinsOnly="0" thickunit="mil" processRole="1" sheet="0" angle="90.0" materialname="Copper" precedence="1" toprough="" negative="0" subtype="0" bottomrough="" thick="1" index="0" layer="3"/>
+        <layer expand="1" pinsOnly="0" thickunit="mil" processRole="1" sheet="0" angle="90.0" materialname="Copper" precedence="1" toprough="" negative="0" subtype="0" bottomrough="" thick="0.5" index="1" layer="2"/>
+        <layer expand="1" pinsOnly="0" thickunit="mil" processRole="20" sheet="0" angle="90.0" materialname="" precedence="0" toprough="" negative="0" subtype="-1" bottomrough="" thick="0.1" index="1" layer="1"/>
+    </layers>
+    <vias/>
+    <substrates/>
+</SubstrateModel>
