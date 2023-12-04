@@ -77,5 +77,5 @@ end
 
 function R = LengthTo90CurveR(L, deg)
     pie = deg/360;
-    R = sqrt(L/(pi*pie));
+    R = L/(2*pi*pie);
 end
