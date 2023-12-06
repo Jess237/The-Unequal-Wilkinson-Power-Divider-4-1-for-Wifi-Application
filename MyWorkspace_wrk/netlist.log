@@ -1,38 +1,13 @@
-; Top Design: "MyLibrary_lib:cell_2:schematic"
+; Top Design: "MyLibrary_lib:simple:schematic"
 ; Netlisted using Hierarchy Policy: "Standard"
 
-Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="MyLibrary_lib:cell_2:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
-
-Z3=70.7107
-R=125
-Z0=50
-Z4=35.3553
-Z2=39.5285
-f=2.4GHz
-Z1=158.1139
-model MSub1 MSUB H=1.57 mm Er=4 Mur=1 Cond=5.96E+7 Hu=3.93701e+34 mil T=35 um TanD=0.027 Rough=0 mil DielectricLossModel=1 FreqForEpsrTanD=1.0 GHz LowFreqForTanD=1.0 kHz HighFreqForTanD=1.0 THz RoughnessModel=2 
-
-X=1.0
-R1=4.9483 mm
-R2=4.7285 mm
-W0=3.224 mm
-W1=0.1669 mm
-W2=4.6411 mm
-W3=1.7308 mm
-W4=5.4536 mm
-L0=17.8256 mm
-L1=19.2310 mm
-L2=17.5604 mm
-L3=18.2406 mm
-L4=17.4401 mm
-MLIN2:TL1  N__8 N__3 Subst="MSub1" W=W3 L=L3 Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
-MLIN2:TL2  N__10 N__27 Subst="MSub1" W=W4 L=L4 Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
-MCURVE:Curve1  N__8 N__9 Subst="MSub1" W=W1 Angle=90 Radius=R1 
-MCURVE:Curve2  N__9 N__10 Subst="MSub1" W=W2 Angle=90 Radius=R2 
-R:R1  N__8 N__10 R=R Noise=yes 
-Port:Term1  N__9 0 Num=1 Z=50 Ohm Noise=yes 
-Port:Term2  N__3 0 Num=2 Z=50 Ohm Noise=yes 
-Port:Term3  N__27 0 Num=3 Z=50 Ohm Noise=yes 
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="MyLibrary_lib:simple:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
+Port:Term1  N__8 0 Num=1 Z=50 Ohm Noise=yes 
+Port:Term2  N__11 0 Num=2 Z=50 Ohm Noise=yes 
+Port:Term3  N__10 0 Num=3 Z=50 Ohm Noise=yes 
+TLIN:TL1  N__8 N__11 Z=1000 Ohm E=90 F=2.4 GHz 
+TLIN:TL2  N__8 N__10 Z=62.5 Ohm E=90 F=2.4 GHz 
+R:R1  N__11 N__10 R=100 Ohm Noise=yes 
 S_Param:SP1 CalcS=yes CalcY=no CalcZ=no GroupDelayAperture=1e-4 FreqConversion=no FreqConversionPort=1 StatusLevel=2 CalcNoise=no SortNoise=0 BandwidthForNoise=1.0 Hz DevOpPtLevel=0 SPSS_WSP=yes \
 SweepVar="freq" SweepPlan="SP1_stim" OutputPlan="SP1_Output" 
 

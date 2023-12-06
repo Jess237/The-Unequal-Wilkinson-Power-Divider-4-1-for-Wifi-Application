@@ -1,5 +1,7 @@
 <!DOCTYPE SaveWorkspaceState>
 <SaveWorkspaceState>
-    <Windows/>
+    <Windows>
+        <DDS name="UWPD.dds"/>
+    </Windows>
     <MainWindowTab tab="1"/>
 </SaveWorkspaceState>
